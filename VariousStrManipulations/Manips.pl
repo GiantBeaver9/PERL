@@ -16,3 +16,6 @@ print "Mr. $last how are you doing?\n";
 my $num = 35;
 
 print $num * 25;
+
+
+print "echo! "x$num;
