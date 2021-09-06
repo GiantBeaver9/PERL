@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-$|=1;
+$|=-1;
 
 sub main{
 	#here we could let the user parse their own file
@@ -25,12 +25,13 @@ use . as a wild card\n";
 	
 	my $count = 1;
 	
+
 	while(my $line = <INPUT>){
-		if ($line =~ $parse) {
-		print "Match! Line containing $1 printed to output, Match #" . $count . "\n";
-		print OUTPUT;
-		$count += 1;
-		}
+		if ($line =~ /($parse)/) {
+			print "Found match in line $count\n";
+			print OUTPUT $line;
+			}
+		$count = $count + 1;
 	}
 
 

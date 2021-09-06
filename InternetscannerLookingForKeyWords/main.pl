@@ -6,7 +6,7 @@ use File::Spec;
 use Path::Class;
 
 my $coretests = file(file($0)->parent, '');
-print $coretests;
+
 sub main {
 	print "What web page do you want to go to? Omit any HTTPS://\n";
 	my $site = <STDIN>;
@@ -22,7 +22,6 @@ sub main {
 	print getstore("http://${site}", "${siteName}.txt"), "\n";
 	$siteName = $siteName . ".txt";
 	open OUTPUT, '>'."parsedPage.txt" or die;
-	print $coretests . '\\' . ${siteName}; 
 	open INPUT, File::Spec->catfile($coretests, '\\'.${siteName});
 	while(my $lineInSite = <INPUT>){
 		
